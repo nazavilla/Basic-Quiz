@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Quiz</title>
+</head>
+<body>
+    <main id="card" class="card">
+        <p id="qNumber" class="qNumber">Question 1 / 6</p>
+        <hr>
+        <h2 class="question" id="question">question title?</h2>
+        <nav class="answerNav">
+            <a class="answer" >option 1</a>
+            <a class="answer" >option 2</a>
+            <a class="answer" >option 3</a>
+            <a class="answer" >option 4</a>
+        </nav>
+        <button id="btn" class="Next">Next</button>
+        <button onclick="finish()" class="finish">Finish</button>
+    </main>
+
+    <main id="card2" class="card2">
+        <h1 class="quizHome">Quiz</h1>
+            <button onclick="cardDisplay()" id="btn" class="start">Start Quiz</button>
+    </main>
+
+    <main class="card3">
+        <h1 class="quizHome2">You made it to the end!</h1>
+    </main>
+</body>
+<script src="index.js" async></script>
+</html>
