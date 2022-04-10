@@ -17,48 +17,27 @@ function showQuestion(q){
     });
 }
 
-//Question 1 
-let question1 = {
-    numero: 1,
-    questionTitle: "What is Earth's largest continent?",
-    alternatives: ["Australia", "Asia", "Europe", "America"],
-    correctAnswerIndex: 1
+//Question class
+class Quest {
+    constructor(numero, questionTitle, alternatives, correctAnswerIndex) {
+        this.numero = numero;
+        this.questionTitle = questionTitle;
+        this.alternatives = alternatives;
+        this.correctAnswerIndex = correctAnswerIndex;
+    }
 }
 
-let question2 = {
-    numero: 2,
-    questionTitle: "Which country has the highest population?",
-    alternatives: ["Irlanda", "Grecia", "China", "Chile"],
-    correctAnswerIndex: 2
-}
+let question1 = new Quest(1, "What is Earth's largest continent?", ["Australia", "Asia", "Europe", "America"], 1);
 
-let question3 = {
-    numero: 3,
-    questionTitle: "What is the capital of Chile?",
-    alternatives: ["Zacatecas", "Bogota", "Mendoza", "Santiago"],
-    correctAnswerIndex: 3
-}
+let question2 = new Quest(2, "Which country has the highest population?", ["Irlanda", "Grecia", "China", "Chile"], 2);
 
-let question4 = {
-    numero: 4,
-    questionTitle: "Where is the Eiffel Tower located? ",
-    alternatives: ["Caracas", "New York", "Paris", "Seul"],
-    correctAnswerIndex: 2
-}
+let question3 = new Quest(3, "What is the capital of Chile?", ["Zacatecas", "Bogota", "Mendoza", "Santiago"], 3);
 
-let question5 = {
-    numero: 5,
-    questionTitle: "in what country are the Pyramids of Giza located?",
-    alternatives: ["Egypt", "Italy", "Germany", "Cuba"],
-    correctAnswerIndex: 0
-}
+let question4 = new Quest(4, "Where is the Eiffel Tower located? ", ["Caracas", "New York", "Paris", "Seul"], 2 );
 
-let question6 = {
-    numero: 6,
-    questionTitle: "Which country is also called The Netherlands? ",
-    alternatives: ["Bellowzero", "Underground", "Holland", "Greenland"],
-    correctAnswerIndex: 2
-}
+let question5 = new Quest(5, "in what country are the Pyramids of Giza located?", ["Egypt", "Italy", "Germany", "Cuba"], 0);
+
+let question6 = new Quest(6, "Which country is also called The Netherlands? ", ["Bellowzero", "Underground", "Holland", "Greenland"], 2);
 
 
 function ShowQuestions(){
@@ -98,7 +77,7 @@ function ShowQuestions(){
                 })
             })
         });
-}
+    }
 
 ShowQuestions();
 
