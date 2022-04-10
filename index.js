@@ -63,11 +63,11 @@ let question6 = {
 
 function ShowQuestions(){
 
-function  nextQuest(q) {
-        //next question
-    let num = document.querySelector('.qNumber');
-        num.textContent = `Question ${q.numero} / 6`;
-}
+        function  nextQuest(q) {
+            //next question
+            let num = document.querySelector('.qNumber');
+            num.textContent = `Question ${q.numero} / 6`;
+        }
 
 
     showQuestion(question1);
@@ -75,10 +75,6 @@ function  nextQuest(q) {
     let btn = document.getElementById("btn");
     let nextoff = document.querySelector(".Next");
     let finish = document.querySelector(".finish");
-    let card3 = document.querySelector(".card3");
-    let card2 = document.getElementById("card2");
-    let card = document.getElementById("card");
-
 
         btn.addEventListener("click", function(){
             showQuestion(question2);
@@ -119,4 +115,5 @@ function finish(){
     let card3 = document.querySelector(".card3");
     card3.style.display = "block";
     card.style.display = "none";
+    
 }
