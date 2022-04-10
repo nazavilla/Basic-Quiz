@@ -6,8 +6,7 @@ body{
     background-color: rgb(190, 190, 231);
 }
 
-.card {
-    display: none;
+.card, .card2, .card3 {
     border-radius: 2em;
     margin: 0 auto;
     background-color: rgb(8, 8, 39);
@@ -17,6 +16,18 @@ body{
     box-shadow: 4px 4px 6px rgb(8, 8, 39);
     text-align: center;
     margin-top: 3em;
+}
+
+.card {
+    display: none;
+}
+
+.card2 {
+    display: block;
+}
+
+.card3 {
+    display: none;
 }
 
 .qNumber{
@@ -43,42 +54,6 @@ body{
     font-weight: bold;
 }
 
-.Next{
-    display: block;
-    background-color: rgb(58, 134, 233);
-    border: none;
-    padding: 0.8em;
-    border-radius: 1em;
-    display: block;
-    margin: 0 auto;
-    margin-top: 2em;
-    width: 5em;
-    color: white;
-    font-weight: bold;
-    text-shadow: 1px 1px  black;
-    display: block;
-}
-
-.Next:hover{
-    background-color: rgb(8, 8, 39);
-    border: 1px solid rgb(58, 134, 233);
-}
-
-
-
-
-.card2 {
-    display: block;
-    border-radius: 2em;
-    margin: 0 auto;
-    background-color: rgb(8, 8, 39);
-    height: 28em;
-    width: 30em;
-    padding: 3em;
-    box-shadow: 4px 4px 6px rgb(8, 8, 39);
-    text-align: center;
-    margin-top: 3em;
-}
 
 .quizHome{
     margin: 0 auto;
@@ -122,38 +97,30 @@ body{
 }
 
 .finish {
+    display: none;
+}
+
+.Next {
+    display: block;
+}
+
+.Next:hover, .finish:hover {
+    background-color: rgb(8, 8, 39);
+    border: 1px solid rgb(58, 134, 233);
+}
+
+.finish, .Next {
     background-color: rgb(58, 134, 233);
     border: none;
     padding: 0.8em;
     border-radius: 1em;
-    display: block;
     margin: 0 auto;
     margin-top: 2em;
     width: 5em;
     color: white;
     font-weight: bold;
     text-shadow: 1px 1px black;
-    display: none;
 }
-
-.finish:hover {
-    background-color: rgb(8, 8, 39);
-    border: 1px solid rgb(58, 134, 233);
-}
-
-.card3 {
-    display: none;
-    border-radius: 2em;
-    margin: 0 auto;
-    background-color: rgb(8, 8, 39);
-    height: 28em;
-    width: 30em;
-    padding: 3em;
-    box-shadow: 4px 4px 6px rgb(8, 8, 39);
-    text-align: center;
-    margin-top: 3em;
-}
-
 .quizHome2 {
     margin: 0 auto;
     font-family: Georgia, 'Times New Roman', Times, serif;

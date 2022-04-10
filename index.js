@@ -1,21 +1,17 @@
 //Show questions function using DOM
 function showQuestion(q){
-    //question
-    let questionT = document.getElementById('question');
-    questionT.textContent = q.questionTitle;
-    //alternatives
-    let alts = document.querySelectorAll('.answer');
-    alts.forEach(function(element, index){
-        element.textContent = q.alternatives[index];
-        element.addEventListener("click", function(){
+    let questionT = document.getElementById('question').textContent = q.questionTitle;
+    let alts = document.querySelectorAll('.answer').forEach(function(element, index){
+            element.textContent = q.alternatives[index];
+            element.addEventListener("click", function(){
             //check answer condition
-            if(q.correctAnswerIndex == index ){
-                element.textContent = "Correct Answer"
-            }
-            else {element.textContent ="Incorrect Answer"}
-        })
-    });
-}
+                if(q.correctAnswerIndex == index ){
+                    element.textContent = "Correct Answer"
+                }
+                else {element.textContent ="Incorrect Answer"}
+            })
+        });
+    }
 
 //Question class
 class Quest {
@@ -44,17 +40,12 @@ function ShowQuestions(){
 
         function  nextQuest(q) {
             //next question
-            let num = document.querySelector('.qNumber');
-            num.textContent = `Question ${q.numero} / 6`;
+            let num = document.querySelector('.qNumber').textContent = `Question ${q.numero} / 6`;
         }
-
 
     showQuestion(question1);
     nextQuest(question1)
     let btn = document.getElementById("btn");
-    let nextoff = document.querySelector(".Next");
-    let finish = document.querySelector(".finish");
-
         btn.addEventListener("click", function(){
             showQuestion(question2);
             nextQuest(question2);
@@ -70,8 +61,8 @@ function ShowQuestions(){
                             btn.addEventListener("click", function(){
                                 showQuestion(question6);
                                 nextQuest(question6);
-                                nextoff.style.display = "none";
-                                finish.style.display = "block";
+                                let nextoff = document.querySelector(".Next").style.display = "none";
+                                let finish = document.querySelector(".finish").style.display = "block";
                         })
                     })
                 })
@@ -81,18 +72,12 @@ function ShowQuestions(){
 
 ShowQuestions();
 
-
 function cardDisplay(){
-    let card2 = document.getElementById("card2");
-    let card = document.getElementById("card");
-    card.style.display = "block";
-    card2.style.display = "none";
+    let card2 = document.getElementById("card2").style.display = "none";
+    let card = document.getElementById("card").style.display = "block";
 }
 
 function finish(){
-    let card = document.getElementById("card");
-    let card3 = document.querySelector(".card3");
-    card3.style.display = "block";
-    card.style.display = "none";
-    
+    let card = document.getElementById("card").style.display = "none";
+    let card3 = document.querySelector(".card3").style.display = "block";
 }
