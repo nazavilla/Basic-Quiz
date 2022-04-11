@@ -73,16 +73,26 @@ const finalcard = () => {
     var card3 = document.getElementById("cardThree").style.display = "block";
 }
 
-//Display questions using setTimeout Method
+//Display questions using Promisses async/await
 
 const delay = (seconds) =>
     new Promise((resolve) =>
     setTimeout(resolve, seconds * 1000)
 );
-    delay(1).then(() => showQuestion(question1));
-    delay(22).then(() => showQuestion(question2)); 
-    delay(42).then(() => showQuestion(question3)); 
-    delay(62).then(() => showQuestion(question4));
-    delay(82).then(() => showQuestion(question5));
-    delay(102).then(() => showQuestion(question6));
-    delay(122).then(() => finalcard());
+
+const showAllquestions = async () => {
+    showQuestion(question1);
+    await delay(22);
+    showQuestion(question2);
+    await delay(22);
+    showQuestion(question3);
+    await delay(22);
+    showQuestion(question4);
+    await delay(22);
+    showQuestion(question5);
+    await delay(22);
+    showQuestion(question6);
+    await delay (22);
+    finalcard();
+}
+showAllquestions()
