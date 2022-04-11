@@ -35,6 +35,20 @@ let question5 = new Quest(5, "in what country are the Pyramids of Giza located?"
 
 let question6 = new Quest(6, "Which country is also called The Netherlands? ", ["Bellowzero", "Underground", "Holland", "Greenland"], 2);
 
+//add async/await and promises to ShowQuestions
+//fix timer to repeat in every question
+//if the correct answer is clicked, the timer should stop
+
+const delay = (seconds) => {
+    new Promise ((resolve) => {
+        setTimeout(resolve, seconds * 1000)
+    });
+}
+
+console.log("Zero Seconds");
+delay(10).then(() => console.log("10 seconds"));
+
+
 
 function ShowQuestions(){
 
@@ -42,32 +56,49 @@ function ShowQuestions(){
             //next question
             let num = document.querySelector('.qNumber').textContent = `Question ${q.numero} / 6`;
         }
+            const timeout = () => {
+                showQuestion(question2);
+                nextQuest(question2);
+                timer(19)
+            }
+            setTimeout(timeout, 20000);
 
-    showQuestion(question1);
-    nextQuest(question1)
-    let btn = document.getElementById("btn");
-        btn.addEventListener("click", function(){
-            showQuestion(question2);
-            nextQuest(question2);
-                btn.addEventListener("click", function(){
+            const timeout2 = () => {
                 showQuestion(question3);
                 nextQuest(question3);
-                    btn.addEventListener("click", function(){
-                    showQuestion(question4);
-                    nextQuest(question4);
-                        btn.addEventListener("click", function(){
-                        showQuestion(question5);
-                        nextQuest(question5);
-                            btn.addEventListener("click", function(){
-                                showQuestion(question6);
-                                nextQuest(question6);
-                                let nextoff = document.querySelector(".Next").style.display = "none";
-                                let finish = document.querySelector(".finish").style.display = "block";
-                        })
-                    })
-                })
-            })
-        });
+                timer(19);
+            }
+            setTimeout(timeout2, 40000);
+
+            
+            const timeout3 = () => {
+                showQuestion(question4);
+                nextQuest(question4);
+                timer(19);
+            }
+            setTimeout(timeout3, 60000);
+            
+            const timeout4 = () => {
+                showQuestion(question5);
+                nextQuest(question5);
+                timer(19);
+            }
+            setTimeout(timeout4, 80000);
+
+
+            const timeout5 = () => {
+                showQuestion(question6);
+                nextQuest(question6);
+                timer(19);
+            }
+            setTimeout(timeout5, 100000);
+
+            const timeout6 = () => {
+                let card = document.getElementById("card").style.display = "none";
+                let card3 = document.querySelector(".card3").style.display = "block";
+                timer(19);
+            }
+            setTimeout(timeout6, 60000);
     }
 
 ShowQuestions();
@@ -75,9 +106,31 @@ ShowQuestions();
 function cardDisplay(){
     let card2 = document.getElementById("card2").style.display = "none";
     let card = document.getElementById("card").style.display = "block";
+    showQuestion(question1),
+    nextQuest(question1)
+
 }
 
-function finish(){
-    let card = document.getElementById("card").style.display = "none";
-    let card3 = document.querySelector(".card3").style.display = "block";
+function timer() {
+
+//CountDown
+let time = 20;
+let counting = document.getElementById("timer");
+
+function startCountdown() {
+    let quizTimer = setInterval(function() {
+        if (time <= 0) {
+            clearInterval(quizTimer);
+            showScores();
+        } else {
+            counting.innerHTML = `TIME: ${time}`;
+        }
+        time -= 1;
+    }, 1000);
 }
+
+startCountdown();
+
+}
+
+timer(19)

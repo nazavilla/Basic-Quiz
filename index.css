@@ -6,6 +6,9 @@ body{
     background-color: rgb(190, 190, 231);
 }
 
+#timer{
+    text-align: right;
+}
 .card, .card2, .card3 {
     border-radius: 2em;
     margin: 0 auto;
@@ -17,29 +20,23 @@ body{
     text-align: center;
     margin-top: 3em;
 }
-
 .card {
     display: none;
 }
-
 .card2 {
     display: block;
 }
-
 .card3 {
     display: none;
 }
-
 .qNumber{
     opacity: 0.7;
     text-align: left;
 }
-
 .answerNav{
     display: flex;
     flex-direction: column;
 }
-
 .answer{
     padding: 0.4em;
     margin: 0.2em;
@@ -47,14 +44,11 @@ body{
     border-radius: 1em;
     text-align: center;
 }
-
 .answer:hover{
     background-color: rgb(58, 134, 233);
     color: rgb(8, 8, 39);
     font-weight: bold;
 }
-
-
 .quizHome{
     margin: 0 auto;
     margin-top: 0.5em;
@@ -67,7 +61,6 @@ body{
     font-size: 4em;
         position: relative;
 }
-
 .quizHome::after{
     content: " ";
     position: absolute;
@@ -78,8 +71,6 @@ body{
     border-left: 15px solid transparent;
     border-bottom: none;
 }
-
-
 .start{
     margin: 11em 0em 0em 0em;
     padding: 1.5em;
@@ -89,27 +80,20 @@ body{
     letter-spacing: 0.1em;
     font-weight: bolder;
 }
-
 .start:hover{
     color: white;
     border: 1px solid white;
     background-color: rgb(8, 8, 39);
 }
-
 .finish {
     display: none;
 }
 
-.Next {
-    display: block;
-}
-
-.Next:hover, .finish:hover {
+.finish:hover {
     background-color: rgb(8, 8, 39);
     border: 1px solid rgb(58, 134, 233);
 }
-
-.finish, .Next {
+.finish {
     background-color: rgb(58, 134, 233);
     border: none;
     padding: 0.8em;
