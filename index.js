@@ -7,7 +7,6 @@ function startCountdown() {
     let quizTimer = setInterval(function() {
         if (time <= 0) {
             clearInterval(quizTimer);
-            showScores();
         } else {
             counting.innerHTML = `TIME: ${time}`;
         }
@@ -37,8 +36,6 @@ function showQuestion(q){
             })
         });
     }
-
-
 
 //Question class
 class Quest {
@@ -71,8 +68,10 @@ function cardDisplay(){
     let card = document.getElementById("card").style.display = "block";
 }
 
-let card = document.getElementById("card");
-let card3 = document.querySelector(".card3");
+const finalcard = () => {
+    var card = document.getElementById("card").style.display = "none";
+    var card3 = document.getElementById("cardThree").style.display = "block";
+}
 
 //Display questions using setTimeout Method
 
@@ -86,7 +85,4 @@ const delay = (seconds) =>
     delay(62).then(() => showQuestion(question4));
     delay(82).then(() => showQuestion(question5));
     delay(102).then(() => showQuestion(question6));
-    delay(122).then(() => 
-        card.style.display = "none",
-        card3.style.display = "block",
-    );
+    delay(122).then(() => finalcard());
