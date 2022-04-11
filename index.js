@@ -1,6 +1,7 @@
 //Show questions function using DOM
 function showQuestion(q){
     let questionT = document.getElementById('question').textContent = q.questionTitle;
+    let num = document.querySelector('.qNumber').textContent = `Question ${q.numero} / 6`;
     let alts = document.querySelectorAll('.answer').forEach(function(element, index){
             element.textContent = q.alternatives[index];
             element.addEventListener("click", function(){
@@ -13,6 +14,8 @@ function showQuestion(q){
         });
     }
 
+
+
 //Question class
 class Quest {
     constructor(numero, questionTitle, alternatives, correctAnswerIndex) {
@@ -21,6 +24,7 @@ class Quest {
         this.alternatives = alternatives;
         this.correctAnswerIndex = correctAnswerIndex;
     }
+
 }
 
 let question1 = new Quest(1, "What is Earth's largest continent?", ["Australia", "Asia", "Europe", "America"], 1);
@@ -35,85 +39,66 @@ let question5 = new Quest(5, "in what country are the Pyramids of Giza located?"
 
 let question6 = new Quest(6, "Which country is also called The Netherlands? ", ["Bellowzero", "Underground", "Holland", "Greenland"], 2);
 
-//add async/await and promises to ShowQuestions
-//fix timer to repeat in every question
-//if the correct answer is clicked, the timer should stop
 
-const delay = (seconds) => {
-    new Promise ((resolve) => {
-        setTimeout(resolve, seconds * 1000)
-    });
+
+//display questions sections
+function cardDisplay(){
+    let card2 = document.getElementById("card2").style.display = "none";
+    let card = document.getElementById("card").style.display = "block";
+    showQuestion(question1);
 }
 
-console.log("Zero Seconds");
-delay(10).then(() => console.log("10 seconds"));
 
-
+//Display questions using setTimeout Method
 
 function ShowQuestions(){
-
-        function  nextQuest(q) {
-            //next question
-            let num = document.querySelector('.qNumber').textContent = `Question ${q.numero} / 6`;
-        }
+    
             const timeout = () => {
                 showQuestion(question2);
-                nextQuest(question2);
                 timer(19)
             }
-            setTimeout(timeout, 20000);
+            setTimeout(timeout, 25000);
 
             const timeout2 = () => {
                 showQuestion(question3);
-                nextQuest(question3);
                 timer(19);
             }
-            setTimeout(timeout2, 40000);
+            setTimeout(timeout2, 45000);
 
             
             const timeout3 = () => {
                 showQuestion(question4);
-                nextQuest(question4);
                 timer(19);
             }
-            setTimeout(timeout3, 60000);
+            setTimeout(timeout3, 65000);
             
             const timeout4 = () => {
                 showQuestion(question5);
-                nextQuest(question5);
                 timer(19);
             }
-            setTimeout(timeout4, 80000);
+            setTimeout(timeout4, 85000);
 
 
             const timeout5 = () => {
                 showQuestion(question6);
-                nextQuest(question6);
                 timer(19);
             }
-            setTimeout(timeout5, 100000);
+            setTimeout(timeout5, 105000);
 
             const timeout6 = () => {
                 let card = document.getElementById("card").style.display = "none";
                 let card3 = document.querySelector(".card3").style.display = "block";
                 timer(19);
             }
-            setTimeout(timeout6, 60000);
+            setTimeout(timeout6, 125000);
     }
 
 ShowQuestions();
 
-function cardDisplay(){
-    let card2 = document.getElementById("card2").style.display = "none";
-    let card = document.getElementById("card").style.display = "block";
-    showQuestion(question1),
-    nextQuest(question1)
 
-}
+//Timer Function
 
 function timer() {
-
-//CountDown
 let time = 20;
 let counting = document.getElementById("timer");
 
@@ -133,4 +118,4 @@ startCountdown();
 
 }
 
-timer(19)
+timer(20)
