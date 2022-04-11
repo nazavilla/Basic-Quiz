@@ -9,7 +9,7 @@ body{
 #timer{
     text-align: right;
 }
-.card, .card2, .card3 {
+#card, #card2, #card3 {
     border-radius: 2em;
     margin: 0 auto;
     background-color: rgb(8, 8, 39);
@@ -20,13 +20,13 @@ body{
     text-align: center;
     margin-top: 3em;
 }
-.card {
+#card {
     display: none;
 }
-.card2 {
+#card2 {
     display: block;
 }
-.card3 {
+#card3 {
     display: none;
 }
 .qNumber{

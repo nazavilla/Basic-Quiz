@@ -1,5 +1,29 @@
+//Timer Function
+function time() {
+let time = 20;
+let counting = document.getElementById("timer");
+
+function startCountdown() {
+    let quizTimer = setInterval(function() {
+        if (time <= 0) {
+            clearInterval(quizTimer);
+            showScores();
+        } else {
+            counting.innerHTML = `TIME: ${time}`;
+        }
+        time -= 1;
+    }, 1000);
+}
+
+startCountdown();
+
+}
+time(20)
+
+
 //Show questions function using DOM
 function showQuestion(q){
+    time(20)
     let questionT = document.getElementById('question').textContent = q.questionTitle;
     let num = document.querySelector('.qNumber').textContent = `Question ${q.numero} / 6`;
     let alts = document.querySelectorAll('.answer').forEach(function(element, index){
@@ -45,77 +69,24 @@ let question6 = new Quest(6, "Which country is also called The Netherlands? ", [
 function cardDisplay(){
     let card2 = document.getElementById("card2").style.display = "none";
     let card = document.getElementById("card").style.display = "block";
-    showQuestion(question1);
 }
 
+let card = document.getElementById("card");
+let card3 = document.querySelector(".card3");
 
 //Display questions using setTimeout Method
 
-function ShowQuestions(){
-    
-            const timeout = () => {
-                showQuestion(question2);
-                timer(19)
-            }
-            setTimeout(timeout, 25000);
-
-            const timeout2 = () => {
-                showQuestion(question3);
-                timer(19);
-            }
-            setTimeout(timeout2, 45000);
-
-            
-            const timeout3 = () => {
-                showQuestion(question4);
-                timer(19);
-            }
-            setTimeout(timeout3, 65000);
-            
-            const timeout4 = () => {
-                showQuestion(question5);
-                timer(19);
-            }
-            setTimeout(timeout4, 85000);
-
-
-            const timeout5 = () => {
-                showQuestion(question6);
-                timer(19);
-            }
-            setTimeout(timeout5, 105000);
-
-            const timeout6 = () => {
-                let card = document.getElementById("card").style.display = "none";
-                let card3 = document.querySelector(".card3").style.display = "block";
-                timer(19);
-            }
-            setTimeout(timeout6, 125000);
-    }
-
-ShowQuestions();
-
-
-//Timer Function
-
-function timer() {
-let time = 20;
-let counting = document.getElementById("timer");
-
-function startCountdown() {
-    let quizTimer = setInterval(function() {
-        if (time <= 0) {
-            clearInterval(quizTimer);
-            showScores();
-        } else {
-            counting.innerHTML = `TIME: ${time}`;
-        }
-        time -= 1;
-    }, 1000);
-}
-
-startCountdown();
-
-}
-
-timer(20)
+const delay = (seconds) =>
+    new Promise((resolve) =>
+    setTimeout(resolve, seconds * 1000)
+);
+    delay(1).then(() => showQuestion(question1));
+    delay(22).then(() => showQuestion(question2)); 
+    delay(42).then(() => showQuestion(question3)); 
+    delay(62).then(() => showQuestion(question4));
+    delay(82).then(() => showQuestion(question5));
+    delay(102).then(() => showQuestion(question6));
+    delay(122).then(() => 
+        card.style.display = "none",
+        card3.style.display = "block",
+    );
