@@ -1,41 +1,41 @@
 //Timer Function
 function time() {
-let time = 20;
-let counting = document.getElementById("timer");
+    let time = 10;
+    let counting = document.getElementById("timer");
 
-function startCountdown() {
-    let quizTimer = setInterval(function() {
-        if (time <= 0) {
-            clearInterval(quizTimer);
-        } else {
-            counting.innerHTML = `TIME: ${time}`;
-        }
-        time -= 1;
-    }, 1000);
+    function startCountdown() {
+        let quizTimer = setInterval(function () {
+            if (time <= 0) {
+                clearInterval(quizTimer);
+            } else {
+                counting.innerHTML = `TIME: ${time}`;
+            }
+            time -= 1;
+        }, 1000);
+    }
+
+    startCountdown();
+
 }
-
-startCountdown();
-
-}
-time(20)
+time(10)
 
 
 //Show questions function using DOM
-function showQuestion(q){
+function showQuestion(q) {
     time(20)
     let questionT = document.getElementById('question').textContent = q.questionTitle;
     let num = document.querySelector('.qNumber').textContent = `Question ${q.numero} / 6`;
-    let alts = document.querySelectorAll('.answer').forEach(function(element, index){
-            element.textContent = q.alternatives[index];
-            element.addEventListener("click", function(){
+    let alts = document.querySelectorAll('.answer').forEach(function (element, index) {
+        element.textContent = q.alternatives[index];
+        element.addEventListener("click", function () {
             //check answer condition
-                if(q.correctAnswerIndex == index ){
-                    element.textContent = "Correct Answer"
-                }
-                else {element.textContent ="Incorrect Answer"}
-            })
-        });
-    }
+            if (q.correctAnswerIndex == index) {
+                element.textContent = "Correct Answer"
+            }
+            else { element.textContent = "Incorrect Answer" }
+        })
+    });
+}
 
 //Question class
 class Quest {
@@ -54,7 +54,7 @@ let question2 = new Quest(2, "Which country has the highest population?", ["Irla
 
 let question3 = new Quest(3, "What is the capital of Chile?", ["Zacatecas", "Bogota", "Mendoza", "Santiago"], 3);
 
-let question4 = new Quest(4, "Where is the Eiffel Tower located? ", ["Caracas", "New York", "Paris", "Seul"], 2 );
+let question4 = new Quest(4, "Where is the Eiffel Tower located? ", ["Caracas", "New York", "Paris", "Seul"], 2);
 
 let question5 = new Quest(5, "in what country are the Pyramids of Giza located?", ["Egypt", "Italy", "Germany", "Cuba"], 0);
 
@@ -63,7 +63,7 @@ let question6 = new Quest(6, "Which country is also called The Netherlands? ", [
 
 
 //display questions sections
-function cardDisplay(){
+function cardDisplay() {
     let card2 = document.getElementById("card2").style.display = "none";
     let card = document.getElementById("card").style.display = "block";
 }
@@ -77,22 +77,22 @@ const finalcard = () => {
 
 const delay = (seconds) =>
     new Promise((resolve) =>
-    setTimeout(resolve, seconds * 1000)
-);
+        setTimeout(resolve, seconds * 1000)
+    );
 
 const showAllquestions = async () => {
     showQuestion(question1);
-    await delay(22);
+    await delay(12);
     showQuestion(question2);
-    await delay(22);
+    await delay(12);
     showQuestion(question3);
-    await delay(22);
+    await delay(12);
     showQuestion(question4);
-    await delay(22);
+    await delay(12);
     showQuestion(question5);
-    await delay(22);
+    await delay(12);
     showQuestion(question6);
-    await delay (22);
+    await delay(12);
     finalcard();
 }
 showAllquestions()
