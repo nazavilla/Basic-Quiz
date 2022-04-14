@@ -26,6 +26,7 @@ body {
 
 #card {
   display: none;
+  border: 2px solid white;
 }
 
 #card2 {
@@ -108,4 +109,32 @@ body {
   width: 5em;
   border-radius: 4em;
   font-size: 4em;
+}
+
+.finish,
+.Next {
+  background-color: rgb(58, 134, 233);
+  border: none;
+  padding: 0.8em;
+  border-radius: 1em;
+  margin: 0 auto;
+  margin-top: 2em;
+  width: 5em;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+}
+
+.finish:hover,
+.Next:hover {
+  background-color: rgb(8, 8, 39);
+  border: 1px solid rgb(58, 134, 233);
+}
+
+.Next {
+  display: block;
+}
+
+.finish {
+  display: none;
 }
