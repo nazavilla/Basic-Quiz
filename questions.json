@@ -1,0 +1,45 @@
+[
+{
+    "numero": 1,
+    "questiontitle": "What is Earth's largest continent?",
+    "alternatives": ["Australia", "Asia", "Europe", "America"],
+    "correctAnswer": 1
+},
+
+{
+    "numero": 2,
+    "questiontitle": "Which country has the highest population?",
+    "alternatives": ["Irlanda", "Grecia", "China", "Chile"],
+    "correctAnswer": 2
+},
+
+{
+    "numero": 3,
+    "questiontitle": "What is the capital of Chile?",
+    "alternatives": ["Zacatecas", "Bogota", "Mendoza", "Santiago"],
+    "correctAnswer": 3
+},
+
+{
+    "numero": 4,
+    "questiontitle": "Where is the Eiffel Tower located? ",
+    "alternatives": ["Caracas", "New York", "Paris", "Seul"],
+    "correctAnswer": 2
+},
+
+
+{
+    "numero": 5,
+    "questiontitle": "in what country are the Pyramids of Giza located?",
+    "alternatives": ["Egypt", "Italy", "Germany", "Cuba"],
+    "correctAnswer": 0
+},
+
+{
+    "numero": 6,
+    "questiontitle": "Which country is also called The Netherlands? ",
+    "alternatives":  ["Bellowzero", "Underground", "Holland", "Greenland"],
+    "correctAnswer": 2
+}
+
+]
