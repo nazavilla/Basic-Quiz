@@ -1,11 +1,11 @@
 {
   "name": "geography-basic-quiz",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Basic Geography Quiz",
+  "main": "src/index.js",
   "author": "Nazareth Villa",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
 }

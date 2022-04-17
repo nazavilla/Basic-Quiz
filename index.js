@@ -1,6 +1,77 @@
+//fecth data from local JSON file using http request and callbacks
+let questionT = document.getElementById('question');
+let alts = document.querySelectorAll('.answer');
+let num = document.querySelector('.qNumber');
+let currentQuestion = {};
+
+let totalOfQuestions = [];
+let numerodePreg = 1;
+let questions = [];
+
+
+//Get data from question.JSON local file
+var myRequest = new Request('questions.json'); //GET
+
+fetch(myRequest)
+    .then((res) => res.json())
+    .then((loadedQuestions) => {
+        questions = loadedQuestions;
+        quiz();
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+
+
+
+function quiz(){
+    //time(25)
+    totalOfQuestions = [...questions];//Spread operator
+    nextQuestions();
+};
+
+
+function nextQuestions() {
+    //checks questions will stop showing after question # 6.
+    if ( numerodePreg > 6){
+        var card = document.getElementById("card").style.display = "none";
+        var card3 = document.getElementById("cardThree").style.display = "block";
+    }
+    
+    //show number of question
+    num.innerText = `Question ${numerodePreg} / 6`; 
+
+    
+    //show questions randomly
+    //CHANGE THIS PART SO IT DOES NOT SHOW RANDOMLY TO AVOID REPETITION
+    let qIndex = Math.floor(Math.random() * totalOfQuestions.length );
+    currentQuestion = totalOfQuestions[qIndex]; //created an index to access each one of the questions
+    questionT.innerText = currentQuestion.questiontitle;
+    
+    //alternatives 
+    alts.forEach((alt, number) => { 
+        number = alt.dataset['number']; //an id of each choice in html file 
+        alt.innerText = currentQuestion["alternatives"][number]; //example: question 5[altermnatives][alternative 3]
+        alt.addEventListener('click', function() {
+            if (currentQuestion.correctAnswer == number) {
+                alt.textContent = "Correct Answer";
+                numerodePreg += 1 ;
+                setTimeout(() => {
+                    nextQuestions();
+                }, 1000);
+            }
+            else {
+                alt.textContent = "Try Again";
+            }
+        });
+    });
+};
+
+//Game timer
+/*
 //Timer Function
 function time() {
-    let time = 10;
+    let time = 25;
     let counting = document.getElementById("timer");
 
     function startCountdown() {
@@ -16,50 +87,7 @@ function time() {
 
     startCountdown();
 
-}
-time(10)
-
-
-//Show questions function using DOM
-function showQuestion(q) {
-    time(20)
-    let questionT = document.getElementById('question').textContent = q.questionTitle;
-    let num = document.querySelector('.qNumber').textContent = `Question ${q.numero} / 6`;
-    let alts = document.querySelectorAll('.answer').forEach(function (element, index) {
-        element.textContent = q.alternatives[index];
-        element.addEventListener("click", function () {
-            //check answer condition
-            if (q.correctAnswerIndex == index) {
-                element.textContent = "Correct Answer"
-            }
-            else { element.textContent = "Incorrect Answer" }
-        })
-    });
-}
-
-//Question class
-class Quest {
-    constructor(numero, questionTitle, alternatives, correctAnswerIndex) {
-        this.numero = numero;
-        this.questionTitle = questionTitle;
-        this.alternatives = alternatives;
-        this.correctAnswerIndex = correctAnswerIndex;
-    }
-
-}
-
-let question1 = new Quest(1, "What is Earth's largest continent?", ["Australia", "Asia", "Europe", "America"], 1);
-
-let question2 = new Quest(2, "Which country has the highest population?", ["Irlanda", "Grecia", "China", "Chile"], 2);
-
-let question3 = new Quest(3, "What is the capital of Chile?", ["Zacatecas", "Bogota", "Mendoza", "Santiago"], 3);
-
-let question4 = new Quest(4, "Where is the Eiffel Tower located? ", ["Caracas", "New York", "Paris", "Seul"], 2);
-
-let question5 = new Quest(5, "in what country are the Pyramids of Giza located?", ["Egypt", "Italy", "Germany", "Cuba"], 0);
-
-let question6 = new Quest(6, "Which country is also called The Netherlands? ", ["Bellowzero", "Underground", "Holland", "Greenland"], 2);
-
+}*/
 
 
 //display questions sections
@@ -69,30 +97,7 @@ function cardDisplay() {
 }
 
 const finalcard = () => {
-    var card = document.getElementById("card").style.display = "none";
-    var card3 = document.getElementById("cardThree").style.display = "block";
+
 }
 
-//Display questions using Promisses async/await
 
-const delay = (seconds) =>
-    new Promise((resolve) =>
-        setTimeout(resolve, seconds * 1000)
-    );
-
-const showAllquestions = async () => {
-    showQuestion(question1);
-    await delay(12);
-    showQuestion(question2);
-    await delay(12);
-    showQuestion(question3);
-    await delay(12);
-    showQuestion(question4);
-    await delay(12);
-    showQuestion(question5);
-    await delay(12);
-    showQuestion(question6);
-    await delay(12);
-    finalcard();
-}
-showAllquestions()
