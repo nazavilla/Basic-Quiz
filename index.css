@@ -6,6 +6,11 @@ body {
   background-color: rgb(8, 8, 39);
 }
 
+.timer-score{
+  display: flex;
+  justify-content: space-between;
+}
+
 #timer {
   text-align: right;
 }
