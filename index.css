@@ -4,6 +4,7 @@ body {
   color: white;
   font-family: "Anek Odia", sans-serif;
   background-color: rgb(8, 8, 39);
+
 }
 
 .timer-score{
@@ -21,7 +22,7 @@ body {
   border-radius: 2em;
   margin: 0 auto;
   background-color: rgb(8, 8, 39);
-  height: 28em;
+  height:28em;
   width: 30em;
   padding: 3em;
   box-shadow: 4px 4px 6px rgb(8, 8, 39);
@@ -142,4 +143,15 @@ body {
 
 .finish {
   display: none;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 14em;
+}
+
+.openS{
+
+  font-weight: bolder;
+  color: white;
 }

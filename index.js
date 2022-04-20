@@ -23,6 +23,7 @@ fetch(myRequest)
     console.error(err);
   });
 
+
 function quiz() {
   totalOfQuestions = [...questions]; //Spread operator
   nextQuestions();

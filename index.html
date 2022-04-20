@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
-    <title>Quiz</title>
+    <link rel="stylesheet" href="media_query.css" />
+
+    <title>Quiz</title> 
   </head>
   <body>
-    <main id="card">
+    <section id="card">
       <div class="timer-score">
         <p class="scoreText">Score: x</p>
         <p id="timer">Timer: x</p>
@@ -22,15 +24,17 @@
         <p class="answer" data-number=2>option 3</p>
         <p class="answer" data-number=3>option 4</p>
       </nav>
-    </main>
-    <main id="card2">
+    </section>
+    <section id="card2">
       <h1 class="quizHome">Quiz</h1>
       <button onclick="cardDisplay()" id="btn" class="start">Start Quiz</button>
-    </main>
-    <main id="cardThree">
+        <h3 class="footer"> <a class="openS" href="https://github.com/nazavilla/Basic-Quiz">Open-source code</a>, by Nazareth Villa </h3>
+    </section>
+    <section id="cardThree">
       <h1 class="quizHome2">You made it to the end!</h1>
       <p class="scoreText">Score: x</p>
-    </main>
+      <h3 class="footer"> <a class="openS" href="https://github.com/nazavilla/Basic-Quiz">Open-source code</a>, by Nazareth Villa </h3>
+    </section>
   </body>
   <script src="index.js" async></script>
 </html>

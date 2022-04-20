@@ -1,0 +1,18 @@
+@media screen and (min-height : 760px){
+#card,
+#card2,
+#cardThree {
+    height:48em;
+}
+
+.answer {
+    padding: 1em;
+    margin: 1em;
+    border-radius: 2em;
+}
+
+h2{
+    font-size: 2em;
+}
+
+}
