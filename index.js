@@ -6,7 +6,7 @@ let currentQuestion = {};
 let scoreText = document.querySelector(".scoreText");
 
 let totalOfQuestions = [];
-let numerodePreg = 1;
+let numerodePreg = 0;
 let score = 0;
 
 let questions = [];
@@ -25,14 +25,14 @@ fetch(myRequest)
 
 
 function quiz() {
-  numerodePreg = 0;
   totalOfQuestions = [...questions]; //Spread operator
   nextQuestions();
+  showAlts();
 }
 
 function nextQuestions() {
   //checks questions will stop showing after question # 6.
-  if (totalOfQuestions.length === 0) { //|| numerodePreg === 6
+  if (totalOfQuestions.length === 0 || numerodePreg === 6) {
     finalCard()
   }
     numerodePreg += 1;
@@ -45,24 +45,34 @@ function nextQuestions() {
   questionT.innerText = currentQuestion.questiontitle;
 
 
-  //alternatives
+
   alts.forEach((alt) => {
     let number = alt.dataset["number"]; //an id of each choice in html file
     alt.innerText = currentQuestion["alternatives"][number]; //example: question 5[altermnatives][alternative 3]
-    alt.addEventListener("click", function () {
-      if (currentQuestion.correctAnswer == number) {
-        score++;
-        nextQuestions();
-      } else {
-        alt.textContent = "Try Again";
-      }
-    });
   });
 
   totalOfQuestions.splice(qIndex, 1); 
   //qindex is the position of the first item to be deleted
   //1 is the number of items to be deleted
+
 }
+
+function showAlts(){
+  alts.forEach((alt) => {
+    let number = alt.dataset["number"]; //an id of each choice in html file
+    alt.innerText = currentQuestion["alternatives"][number]; //example: question 5[altermnatives][alternative 3]
+    alt.addEventListener("click", function () {
+    if (currentQuestion.correctAnswer == number) {
+      score +=1 ;
+      nextQuestions();
+    } else {
+      alt.textContent = "Try Again";
+    }
+    });
+  });
+}
+
+
 
 
 //Game timer
