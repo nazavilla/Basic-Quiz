@@ -6,7 +6,7 @@ let currentQuestion = {};
 let scoreText = document.querySelector(".scoreText");
 
 let totalOfQuestions = [];
-let numerodePreg = 0;
+let numerodePreg = 1;
 let score = 0;
 
 let questions = [];
@@ -25,24 +25,25 @@ fetch(myRequest)
 
 
 function quiz() {
+  numerodePreg = 0;
   totalOfQuestions = [...questions]; //Spread operator
   nextQuestions();
 }
 
 function nextQuestions() {
   //checks questions will stop showing after question # 6.
-  if (totalOfQuestions.length === 0 || numerodePreg === 6) {
+  if (totalOfQuestions.length === 0) { //|| numerodePreg === 6
     finalCard()
   }
-    numerodePreg ++;
+    numerodePreg += 1;
     num.innerText = `Question ${numerodePreg} / 6`;
     scoreText.innerHTML = `Score: ${score}`
 
-  //show questions randomly
-  //CHANGE THIS PART SO IT DOES NOT SHOW RANDOMLY TO AVOID REPETITIONs
+  //show questions randomly  
   let qIndex = Math.floor(Math.random() * totalOfQuestions.length);
   currentQuestion = totalOfQuestions[qIndex]; //created an index to access each one of the questions
   questionT.innerText = currentQuestion.questiontitle;
+
 
   //alternatives
   alts.forEach((alt) => {
@@ -50,25 +51,18 @@ function nextQuestions() {
     alt.innerText = currentQuestion["alternatives"][number]; //example: question 5[altermnatives][alternative 3]
     alt.addEventListener("click", function () {
       if (currentQuestion.correctAnswer == number) {
-        alt.textContent = "Correct Answer";
-        scoreUp()
-        setTimeout(() => {
-          nextQuestions();
-        }, 1000);
+        score++;
+        nextQuestions();
       } else {
         alt.textContent = "Try Again";
       }
     });
   });
 
-  totalOfQuestions.splice(qIndex, 1);
+  totalOfQuestions.splice(qIndex, 1); 
+  //qindex is the position of the first item to be deleted
+  //1 is the number of items to be deleted
 }
-
-function scoreUp(){
-    score+= 1;
-    scoreText.innerText = `Score: ${score}`;
-}
-
 
 
 //Game timer
