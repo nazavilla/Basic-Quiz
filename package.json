@@ -1,11 +1,23 @@
 {
-  "name": "geography-basic-quiz",
+  "name": "quiz",
   "version": "1.0.0",
-  "description": "Basic Geography Quiz",
-  "main": "src/index.js",
+  "description": "Basic geography quiz programmed using HTML, CSS and vanilla JavaScript. It includes a timer of 10 seconds for the entire quiz, and it will show if the selected answer is correct or incorrect.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nazavilla/Basic-Quiz.git"
+  },
+  "keywords": [],
   "author": "Nazareth Villa",
   "license": "ISC",
-  "dependencies": {
-    "xmlhttprequest": "^1.8.0"
+  "bugs": {
+    "url": "https://github.com/nazavilla/Basic-Quiz/issues"
+  },
+  "homepage": "https://github.com/nazavilla/Basic-Quiz#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0"
   }
 }

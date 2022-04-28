@@ -72,16 +72,11 @@ function showAlts(){
   });
 }
 
-
-
-
-//Game timer
-
+//IIFE Immediatly invoked funciton expression inside an IIFE
 //Timer Function
 function time() {
     let time = 25;
     let counting = document.getElementById("timer");
-
     function startCountdown() {
         let quizTimer = setInterval(function () {
             if (time == 0) {
@@ -93,10 +88,9 @@ function time() {
             time -= 1;
         }, 1000);
     }
-
     startCountdown();
 }
-    time(25);
+time(25);
 
 //display questions sections
 function cardDisplay() {
